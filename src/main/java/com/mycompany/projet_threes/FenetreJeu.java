@@ -4,20 +4,68 @@
  */
 package com.mycompany.projet_threes;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 /**
  *
  * @author scham
  */
 public class FenetreJeu extends javax.swing.JFrame {
+    private Jeu jeu ; 
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FenetreJeu.class.getName());
+
+    private JPanel panelGrille;
+    private JLabel[] cases;
 
     /**
      * Creates new form FenetreJeu
      */
     public FenetreJeu() {
         initComponents();
+        this.getContentPane().setLayout(new java.awt.BorderLayout());
+
+        // Création du panel 4x4
+        panelGrille = new JPanel();
+        panelGrille.setLayout(new java.awt.GridLayout(4, 4, 5, 5)); // 4 lignes, 4 colonnes, gaps 5px
+
+        cases = new JLabel[16];
+
+        for (int i = 0; i < 16; i++) {
+        cases[i] = new JLabel("", javax.swing.SwingConstants.CENTER);
+        cases[i].setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.BLACK));
+        cases[i].setFont(new java.awt.Font("Arial", java.awt.Font.BOLD, 24));
+        panelGrille.add(cases[i]);
+        
+        
+        
+        
+}
+
+// On ajoute le panel au centre du JFrame
+    this.getContentPane().add(panelGrille, java.awt.BorderLayout.CENTER);
+
+    jeu = new Jeu();
+    jeu.ajouterTuile();
+    jeu.ajouterTuile();
+
+    mettreAJourGrille();
+
+// On demande à Swing de recalculer la fenêtre
+    this.revalidate();
+    this.repaint();
+  }  
+ private void mettreAJourGrille() {
+        int[][] g = jeu.getGrille();
+        for (int i = 0; i < 16; i++) {
+            int ligne = i / 4;
+            int colonne = i % 4;
+            int valeur = g[ligne][colonne];
+            cases[i].setText(valeur == 0 ? "" : String.valueOf(valeur));
+        }
     }
+}
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,6 +117,10 @@ public class FenetreJeu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FenetreJeu().setVisible(true));
     }
 
+    private void mettreAJourGrille() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
-}
+
