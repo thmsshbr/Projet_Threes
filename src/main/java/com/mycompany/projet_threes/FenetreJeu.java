@@ -6,7 +6,8 @@ package com.mycompany.projet_threes;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-/**
+
+    /*
  *
  * @author scham
  */
@@ -64,7 +65,7 @@ public class FenetreJeu extends javax.swing.JFrame {
             cases[i].setText(valeur == 0 ? "" : String.valueOf(valeur));
         }
     }
-}
+
     
 
     /**
@@ -117,10 +118,9 @@ public class FenetreJeu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new FenetreJeu().setVisible(true));
     }
 
-    private void mettreAJourGrille() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 
