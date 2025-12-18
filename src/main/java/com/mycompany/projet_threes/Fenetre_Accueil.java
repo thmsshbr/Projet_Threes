@@ -35,21 +35,54 @@ public class Fenetre_Accueil extends javax.swing.JFrame {
 
         texte_intro = new javax.swing.JLabel();
         bouton_lancer = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 255));
+        setForeground(new java.awt.Color(204, 204, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        texte_intro.setFont(new java.awt.Font("Segoe UI Black", 3, 18)); // NOI18N
+        texte_intro.setForeground(new java.awt.Color(255, 51, 51));
         texte_intro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        texte_intro.setText("THREES");
-        getContentPane().add(texte_intro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 50));
+        texte_intro.setText("Bienvenue dans le jeu THREES ");
+        getContentPane().add(texte_intro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 400, 40));
 
-        bouton_lancer.setText("LANCER");
+        bouton_lancer.setBackground(new java.awt.Color(51, 51, 255));
+        bouton_lancer.setForeground(new java.awt.Color(255, 255, 0));
+        bouton_lancer.setText("COMMENCER");
+        bouton_lancer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 0), 3));
         bouton_lancer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bouton_lancerActionPerformed(evt);
             }
         });
-        getContentPane().add(bouton_lancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 100, 40));
+        getContentPane().add(bouton_lancer, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 150, 40));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel2.setText("Déplace les tuiles d’une case dans toutes les directions.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 320, 20));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel1.setText("Les règles dui jeu sont simples, les voici : ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 20));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel4.setText("Chaque fusion augmente le score. ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel5.setText(" Plus aucun coup possible : Game Over.");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 280, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        jLabel3.setText(" Fusionne 1 et 2 pour créer 3, puis les nombres identiques.");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 360, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +118,11 @@ public class Fenetre_Accueil extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bouton_lancer;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel texte_intro;
     // End of variables declaration//GEN-END:variables
 }
