@@ -30,12 +30,21 @@ public class FenetreJeu extends javax.swing.JFrame {
  
     private int[][] grille = new int[TAILLE][TAILLE];
     private Random random = new Random();
-
+    private int score = 0;
+    private JLabel labelScore;
+    
+    
     public FenetreJeu() {
         setTitle("Threes");
         setSize(420, 420);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        setLayout(new BorderLayout());
+        labelScore = new JLabel("Score : 0", SwingConstants.CENTER);
+        labelScore.setFont(new Font("Arial", Font.BOLD, 16));
+        add(labelScore, BorderLayout.NORTH);
+
 
         JPanel panel = new JPanel(new GridLayout(4, 4, 5, 5));
         panel.setBackground(Color.DARK_GRAY);
@@ -71,7 +80,13 @@ public class FenetreJeu extends javax.swing.JFrame {
                 if (deplacement) {
                     ajouterNombre();
                     rafraichir();
-                }
+                
+                if (jeuTermine()) {
+                FenetreFin_Jeu fin = new FenetreFin_Jeu(score);
+                fin.setVisible(true);
+                dispose();
+            }
+                }   
             }
         });
 
@@ -100,6 +115,7 @@ public class FenetreJeu extends javax.swing.JFrame {
     }
 
     private int valeurFusion(int a, int b) {
+        score += (a + b);
         return a + b;
     }
 
@@ -196,6 +212,8 @@ public class FenetreJeu extends javax.swing.JFrame {
     }
 
     private void rafraichir() {
+        labelScore.setText("Score : " + score);
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (grille[i][j] == 0) {
@@ -208,6 +226,17 @@ public class FenetreJeu extends javax.swing.JFrame {
             }
         }
     }
+        private boolean jeuTermine() {
+        for (int i = 0; i < TAILLE; i++) {
+            for (int j = 0; j < TAILLE; j++) {
+                if (grille[i][j] == 0) return false;
+                if (j < TAILLE - 1 && fusion(grille[i][j], grille[i][j + 1])) return false;
+                if (i < TAILLE - 1 && fusion(grille[i][j], grille[i + 1][j])) return false;
+            }
+        }
+        return true;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
